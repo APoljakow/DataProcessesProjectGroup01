@@ -24,6 +24,7 @@ not necessarily fully exhaustive. Make sure to read the detailed explanation on 
         - [gun law navigator description](https://gijn.org/2018/01/23/how-they-did-it-developing-a-data-driven-navigator-on-gun-laws/)
              - [two](https://www.wired.com/2016/10/one-great-way-reduce-gun-violence-whole-lot-data/)
              - [three](https://www.globenewswire.com/news-release/2019/10/03/1924891/0/en/Zignal-Labs-The-Public-Good-Projects-and-Everytown-for-Gun-Safety-Recognized-by-The-Holmes-Report-s-Innovator-25-Americas-2019.html)
+             - The gun law navigator is a web application which provides the user information considering the current law applied on guns in america. Furthermore it provides the possibility to understand certain aspects and compare them through time and between certain states. 
         - [Data Driven Analysis of Gun Type and Mass Shooting Deaths description](https://www.bu.edu/bmegsc/2018/04/02/a-data-driven-analysis-of-gun-type-and-mass-shooting-deaths/)
         - [breaking the pattern description] **TODO** ()
         - [mapping police violence description](https://www.nature.com/articles/d41586-019-02601-9)
