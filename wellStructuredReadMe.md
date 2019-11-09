@@ -6,7 +6,7 @@ not necessarily fully exhaustive. Make sure to read the detailed explanation on 
 ### Project set up (**2 points**)
 - Successfully creates repository and adds all group members to the repo (**1 point**)
     - [repo](https://github.com/APoljakow/DataProcessesProjectGroup01.git)
-    - members: [Jorge Martin Lasaosa](https://github.com/jomartla), [Juan Luis Ruiz-Tagle Oriol](https://github.com/juanluisrto), [Mateusz Klimas](https://github.com/MateuszKlimas), [Wladyslaw Eysymontt](https://github.com/weysymontt), [Artjom Poljakow](https://github.com/APoljakow) 
+    - [Jorge Martin Lasaosa](https://github.com/jomartla), [Juan Luis Ruiz-Tagle Oriol](https://github.com/juanluisrto), [Mateusz Klimas](https://github.com/MateuszKlimas), [Wladyslaw Eysymontt](https://github.com/weysymontt), [Artjom Poljakow](https://github.com/APoljakow) 
 - Uses well formatted markdown throughout this document (headers for each section, lists where appropriate, hyperlinked words, etc.) (**1 point**)
     - [x] well formed
 
