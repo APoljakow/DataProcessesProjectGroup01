@@ -6,7 +6,7 @@ not necessarily fully exhaustive. Make sure to read the detailed explanation on 
 ### Project set up (**2 points**)
 - Successfully creates repository and adds all group members to the repo (**1 point**)
     - [repo](https://github.com/APoljakow/DataProcessesProjectGroup01.git)
-    - members: [Jorge Martin Lasaosa](https://github.com/jomartla), [Juan Luis Ruiz-Tagle Oriol](https://github.com/juanluisrto), [Mateusz Klimas](https://github.com/MateuszKlimas), [Wladyslaw Eysymontt](https://github.com/weysymontt), [Artjom Poljakow](https://github.com/APoljakow) 
+    - [Jorge Martin Lasaosa](https://github.com/jomartla), [Juan Luis Ruiz-Tagle Oriol](https://github.com/juanluisrto), [Mateusz Klimas](https://github.com/MateuszKlimas), [Wladyslaw Eysymontt](https://github.com/weysymontt), [Artjom Poljakow](https://github.com/APoljakow) 
 - Uses well formatted markdown throughout this document (headers for each section, lists where appropriate, hyperlinked words, etc.) (**1 point**)
     - [x] well formed
 
@@ -41,17 +41,26 @@ not necessarily fully exhaustive. Make sure to read the detailed explanation on 
 For each identified data source, provide/complete the following:
 
 - Link to URL where data is from (**1 point**)
+    - [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees)
+         - [License CC0: Public Domain](https://creativecommons.org/publicdomain/zero/1.0/)
+
+    - [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data)
+         - [License CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+         - [gun violence archive](https://www.gunviolencearchive.org/)
+         - [Mission Statement](https://www.gunviolencearchive.org/about)
+
+    - [US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years)
+         - [License Database: Open Database, Contents: Database Contents](https://opendatacommons.org/licenses/dbcl/1.0/)
+
+    - [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms)
+         - [License CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
 - Download the data into the project repo in a data/ folder (**1 point**)
+    - [x] downloaded
 - Description of how was the data collected or generated (**1 point**)
+    - [ ] TODO
 - How many observations (rows) and features (columns) are in your data(**1 point**)?
+    - [ ] TODO
 - What questions (from above) can be answered using the data in this dataset (**1 point**)?
+    - [ ] TODO
 
-Datasets:
-
-[Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data)
-
-[US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years)
-
-[Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms)
-
-[Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees)
