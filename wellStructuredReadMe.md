@@ -46,10 +46,12 @@ For each identified data source, provide/complete the following:
 - How many observations (rows) and features (columns) are in your data(**1 point**)?
 - What questions (from above) can be answered using the data in this dataset (**1 point**)?
 
+Datasets:
 
+[Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data)
 
-Links 
-- https://www.kaggle.com/jameslko/gun-violence-data
-- https://www.kaggle.com/zusmani/us-mass-shootings-last-50-year
-- https://www.kaggle.com/jboysen/state-firearms
-- https://www.kaggle.com/doj/federal-firearm-licensees
+[US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years)
+
+[Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms)
+
+[Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees)
