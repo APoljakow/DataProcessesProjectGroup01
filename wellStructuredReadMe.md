@@ -31,12 +31,17 @@ not necessarily fully exhaustive. Make sure to read the detailed explanation on 
 - Three data-driven questions do you hope to answer about this domain (**6 points, 2 points each**)
     - Question 1
         - Question is related to the field (**1 point**)
+            - Are the mental ilnesses are more frequently observed among the mass shooters then among the population (population mean)?
         - Question can be answered with data (**1 point**)
+
     - Question 2
         - Question is related to the field (**1 point**)
+            - Does the need of the Firearm Licence (in a concrete State) in order to purchase a gun affects the "gun kills/population" rate?
         - Question can be answered with data (**1 point**)
+
     - Question 3
         - Question is related to the field (**1 point**)
+            - What variables affect the gun
         - Question can be answered with data **(1 point**)
 ### Finding Data (**15 points, 5 points each**)
 For each identified data source, provide/complete the following:
@@ -60,8 +65,26 @@ For each identified data source, provide/complete the following:
     - [x] downloaded
 - Description of how was the data collected or generated (**1 point**)
     - [ ] TODO
+        - [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees): We have found this dataset in [kaggle](https://www.kaggle.com/). This data is published online in a tab-separated format by the Department of Justice Bureau of Alcohol, Tobacco, Firearms, and Explosives. It has been lightly retouched into a CSV file before publication in Kaggle.
+        - [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data): We have found this dataset in [kaggle](https://www.kaggle.com/), but originally the date was downloaded from [Gun Violence Archive (GVA)](http://www.gunviolencearchive.org/).
+        - [US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years): We have found this dataset in [kaggle](https://www.kaggle.com/). Several public datasets and web pages had been consulted to compile this data. Some of the major data sources include Wikipedia, Mother Jones, Stanford, USA Today and other web sources.
+        - [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms): We have found this dataset in [kaggle](https://www.kaggle.com/). The first 100 provisions are originally derived from Thomson Reuters Westlaw legislative database and had been coded by Michael Siegel, MD, MPH, Boston University School of Public Health and another 33 were coded using a database created by Everytown for Gun Safety and Legal Science, LLC.
+
 - How many observations (rows) and features (columns) are in your data(**1 point**)?
     - [ ] TODO
+        - [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees):
+            - Columns: 18
+            - Rows: 80197
+        - [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data):
+            - Columns: 29
+            - Rows: 251590
+        - [US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years):
+            - Columns: 13
+            - Rows: 325
+        - [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms):
+            - Columns: 136
+            - Rows: 1350
 - What questions (from above) can be answered using the data in this dataset (**1 point**)?
     - [ ] TODO
+        - All of them can be answered using the data from the selected datasets. The only one thing we will have to use apart from this, is some APIs in order to get the populational data, as number of people living in each State or percentage of people having concrete mental ilness in U.S.
 
