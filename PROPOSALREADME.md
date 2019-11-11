@@ -53,7 +53,7 @@ not necessarily fully exhaustive. Make sure to read the detailed explanation on 
             How does the gun violence influence the gross domestic product in USA. For example taxes, hospitals, income.
         - Question can be answered with data **(1 point**)
 	
-		Given datasets can provide a contribution to the answers but certainly lack information which needs to be gained from other resources.
+	    	Given datasets can provide a contribution to the answers but certainly lack information which needs to be gained from other resources.
 	    
     - Question 4
         - Question is related to the field: 
