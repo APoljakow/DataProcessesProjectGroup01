@@ -12,22 +12,25 @@ not necessarily fully exhaustive. Make sure to read the detailed explanation on 
 
 ### Domain of Interest (**13 points**)
 - Why are you interested in this field/domain? Describes in at least 2 - 3 sentences why the group is interested in this area. May be personal, or related to pertinence of the domain. (**1 point**)
- 
     - This field is of interest since the deaths by gun misuse in USA supposes a thread of huge relevance and importance for the american society, with drastic implications in many areas of the life of the citizens. (e.g. safety, laws, finance...)
+	
 - Three examples of other data driven projects related to this domain (**6 points, 2 points each**)?
     - Provides link to the data driven projects (**1 point**)
-        - [gun law navigator](https://everytownresearch.org/navigator/)
-        - [Data Driven Analysis of Gun Type and Mass Shooting Deaths](https://fivethirtyeight.com/features/gun-deaths/)
-        - [breaking the pattern](https://breaking-the-pattern.com/)
-        - [mapping police violence](https://mappingpoliceviolence.org/cities)
+        - [Gun law navigator](https://everytownresearch.org/navigator/)
+        - [Data driven analysis of gun type and mass shooting deaths](https://fivethirtyeight.com/features/gun-deaths/)
+        - [Breaking the pattern](https://breaking-the-pattern.com/)
+        - [Mapping police violence](https://mappingpoliceviolence.org/cities)
     - Briefly describes the project in 1 - 2 sentences (**1 points**)
-        - [gun law navigator description](https://gijn.org/2018/01/23/how-they-did-it-developing-a-data-driven-navigator-on-gun-laws/)
-             - [two](https://www.wired.com/2016/10/one-great-way-reduce-gun-violence-whole-lot-data/)
-             - [three](https://www.globenewswire.com/news-release/2019/10/03/1924891/0/en/Zignal-Labs-The-Public-Good-Projects-and-Everytown-for-Gun-Safety-Recognized-by-The-Holmes-Report-s-Innovator-25-Americas-2019.html)
-             - The gun law navigator is a web application which provides the user information considering the current law applied on guns in america. Furthermore it provides the possibility to understand certain aspects and compare them through time and between certain states. 
-        - [Data Driven Analysis of Gun Type and Mass Shooting Deaths description](https://www.bu.edu/bmegsc/2018/04/02/a-data-driven-analysis-of-gun-type-and-mass-shooting-deaths/)
-        - [breaking the pattern description] **TODO** ()
-        - [mapping police violence description](https://www.nature.com/articles/d41586-019-02601-9)
+        - The **gun law navigator** is a web application which provides the user information considering the current law applied on guns in america. Furthermore it provides the possibility to understand certain aspects and compare them through time and between certain states. Here we can see some insights about the project:
+            - [How they did it?](https://gijn.org/2018/01/23/how-they-did-it-developing-a-data-driven-navigator-on-gun-laws/)
+            - [One way to reduce gun violence through data](https://www.wired.com/2016/10/one-great-way-reduce-gun-violence-whole-lot-data/)
+            - [About the lab which develop the navigator](https://www.globenewswire.com/news-release/2019/10/03/1924891/0/en/Zignal-Labs-The-Public-Good-Projects-and-Everytown-for-Gun-Safety-Recognized-by-The-Holmes-Report-s-Innovator-25-Americas-2019.html)     
+        - The **analysis of gun type and mass shooting deaths**  uses data from the years 2012 to 2014 about different categories of deaths caused by guns. Some examples of these categories are terrorism gun deaths, homicides or mass shootings. A summary of this analysis could be seen in the following link:
+            - [Summary of the analysis](https://www.bu.edu/bmegsc/2018/04/02/a-data-driven-analysis-of-gun-type-and-mass-shooting-deaths/)
+        - **Breaking the pattern** proposes to paint with data as an alternative way of understanding the issue of gun violence. Offering a deeper understanding of gun violence in American cities as a public health phenomenon, rather than a public safety issue. 
+        - The **mapping violence police** use data from January 2013 through December 2018 to show which police departments are most - and least - likely to kill people. Some conclusions can be seen in this article:
+            - [Article understanding the results](https://www.nature.com/articles/d41586-019-02601-9)
+        
 - Three data-driven questions do you hope to answer about this domain (**6 points, 2 points each**)
     - Question 1
         - Question is related to the field (**1 point**)
@@ -62,29 +65,31 @@ For each identified data source, provide/complete the following:
          - [License CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 - Download the data into the project repo in a data/ folder (**1 point**)
-    - [x] downloaded
+    - [x] Downloaded
+	
 - Description of how was the data collected or generated (**1 point**)
-    - [ ] TODO
-        - [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees): We have found this dataset in [kaggle](https://www.kaggle.com/). This data is published online in a tab-separated format by the Department of Justice Bureau of Alcohol, Tobacco, Firearms, and Explosives. It has been lightly retouched into a CSV file before publication in Kaggle.
-        - [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data): We have found this dataset in [kaggle](https://www.kaggle.com/), but originally the date was downloaded from [Gun Violence Archive (GVA)](http://www.gunviolencearchive.org/).
-        - [US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years): We have found this dataset in [kaggle](https://www.kaggle.com/). Several public datasets and web pages had been consulted to compile this data. Some of the major data sources include Wikipedia, Mother Jones, Stanford, USA Today and other web sources.
-        - [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms): We have found this dataset in [kaggle](https://www.kaggle.com/). The first 100 provisions are originally derived from Thomson Reuters Westlaw legislative database and had been coded by Michael Siegel, MD, MPH, Boston University School of Public Health and another 33 were coded using a database created by Everytown for Gun Safety and Legal Science, LLC.
+
+    All of the following datasets have been found in [Kaggle](https://www.kaggle.com), but are gathered from different sources:
+
+    - [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees): The original data is published online in a tab-separated format by the [Department of Justice Bureau of Alcohol, Tobacco, Firearms, and Explosives](https://www.atf.gov/resource-center/data-statistics). This association compiles a comprehensive collection of ATF-related data from national surveys, state-based surveys, other collected license statistics, and other data sources documents trends in firearms, commerce and use of federal services in the United States.
+    - [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data): The original data source is [Gun Violence Archive (GVA)](http://www.gunviolencearchive.org/). GVA began with the goal to provide a database of incidents of gun violence and gun crime. To that end they utilize automated queries, manual research through over 6,500 sources from local and state police, media, data aggregates, government and other sources daily. Each incident is verified by both initial researchers and secondary validation processes. Links to each incident are included in the incident report to provide further information on each incident for researchers, advocate groups, media and legislative interests. The incident reports provide a starting point for researchers, media and legislative interests to add texture to our raw data.
+    - [US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years): The data is gathered from several public datasets and web pages that had been consulted. Some of the major data sources include Wikipedia, Mother Jones, Stanford, USA Today and other web sources.
+    - [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms): The first 100 provisions are originally derived from Thomson Reuters Westlaw legislative database and had been coded by Michael Siegel, MD, MPH, Boston University School of Public Health and another 33 were coded using a database created by Everytown for Gun Safety and Legal Science, LLC.
 
 - How many observations (rows) and features (columns) are in your data(**1 point**)?
-    - [ ] TODO
-        - [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees):
-            - Columns: 18
-            - Rows: 80197
-        - [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data):
-            - Columns: 29
-            - Rows: 251590
-        - [US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years):
-            - Columns: 13
-            - Rows: 325
-        - [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms):
-            - Columns: 136
-            - Rows: 1350
+    - [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees):
+        - Columns: 18
+        - Rows: 80197
+    - [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data):
+        - Columns: 29
+        - Rows: 251590
+    - [US Mass Shootings](https://www.kaggle.com/zusmani/us-mass-shootings-last-50-years):
+        - Columns: 13
+        - Rows: 325
+    - [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms):
+        - Columns: 136
+        - Rows: 1350
+		
 - What questions (from above) can be answered using the data in this dataset (**1 point**)?
-    - [ ] TODO
-        - All of them can be answered using the data from the selected datasets. The only one thing we will have to use apart from this, is some APIs in order to get the populational data, as number of people living in each State or percentage of people having concrete mental ilness in U.S.
+    - All of them can be answered using the data from the selected datasets. The only one thing we will have to use apart from this, is some APIs in order to get the populational data, as number of people living in each State or percentage of people having concrete mental ilness in U.S.
 
