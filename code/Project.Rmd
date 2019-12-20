@@ -1,0 +1,125 @@
+---
+title: "Data Processes Final Project - Group 1"
+author: "Artjom Poljakow, Wladyslaw Eysymontt, Mateusz Klimas, Juan Luis Ruiz-Tagle, Jorge Martín Lasaosa"
+date: "20/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(plotly)
+
+source("Project.R")
+```
+
+## Final Project Rubric
+This rubric is intended to help guide expectations and increase transparency. However, it is not necessarily fully exhaustive. Make sure to read the detailed explanation on Moodle.
+
+### Abstract (**5 points**)
+- Succinctly summarizes the importance and findings of the project within the 150 word limit.
+
+### Introduction and Related Work (**10 points**)
+- Provides a clear motivation for answering a _specific_ data driven question of interest (**5 points**)
+- Cites 5 _relevant_ pieces of relevant work (whatever format you choose is fine, including just a hyperlink) (**1 point each**)
+
+### Exploratory Data Analysis (**20 points**)
+
+Introduces the dataset by describing the origin (source) and structure (shape, relevant features) of the data being used (**5 points**)
+
+1. [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees) The original data is published online in a tab-separated format by the [Department of Justice Bureau of Alcohol, Tobacco, Firearms, and Explosives](https://www.atf.gov/resource-center/data-statistics). This association, also known as ATF, compiles a comprehensive collection of ATF-related data from national surveys, state-based surveys, other collected license statistics, and other data sources documents trends in firearms, commerce and use of federal services in the United States.There are important features such as:
+
+    * Example 1
+    * Example 2
+    * Example 3
+    * ...
+
+    **The main structure is blablablablabla**
+
+2. [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data): More than 260.000 gun violence incidents in the US between January 2013 and March 2018 with detailed information about each one. GVA organization utilize automated queries, manual research through over 6,500 sources from local and state police, media, data aggregates, government and other sources daily. Each incident is verified by both initial researchers and secondary validation processes. There are relevant information such us:
+
+    * Example 1
+    * Example 2
+    * Example 3
+    * ...
+
+    The main structure is **blablablablabla**. However, the combination of categorical and continuous features is plenty of null values. This can be harmful to the machine learning algorithms
+
+3. [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms): The State Firearm Laws project aims to provide researchers with the data necessary to evaluate the effectiveness of various firearm laws. This dataset covers all 50 US States from 1991 to 2017 and includes 133 binary variables which explain the states requirements. These requirements are related to the following topics:
+    
+    * Vendor license required to sell ammunition.
+    * Records of ammunition sales must be retained by the dealer.
+    * Permit required to purchase ammunition.
+    * Background checks required for ammunition purchases.
+    * Sale of ammunition is restricted to the same categories of those who are legally allowed to purchase firearms.
+    * Purchase of any type of ammunition restricted to those ages 18 and older.
+    * Purchase of handgun ammunition restricted to those ages 21 and older.
+    * ...
+
+    One-hundred of the 133 provisions were coded by Michael Siegel, MD, MPH, Boston University School of Public Health, with funding from the Robert Wood Johnson Foundation, Evidence for Action: Investigator-Initiated Research to Build a Culture of Health program (grant #73337), using data derived from the Thomson Reuters Westlaw legislative database. The other 33 provisions were coded using a database created by Everytown for Gun Safety and Legal Science, LLC. Shared in accordance with the Creative Commons Attribution-4.0 International License.
+
+
+Creates 5 well designed and formatted graphics (**15 points**, 3 each)
+  
+ * The visual uses the appropriate visual encodings based on the data type (**1 point**)
+ * Written interpretation of graphic is provided (**1 point**)
+ * Clear axis labels, titles, and legends are included, where appropriate (**1 point**)
+
+Here we have the graphs:
+
+1. Heatmap graph representing "Firearms Provisions in US States" dataset
+    
+    For each state and year, the percentage of policiy measures are represented. Althoug a lot of states are improving their provisions, the mayority do not reach even a half of them. WRITE MORE.
+    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+    plot_1_heatmap
+    ```
+2. Plot 2 title Juan Luis
+    
+    This graph showcases the evolution of the number of people killed and injured  in USA from 2013 to 2018. We notice quickly that the data from 2013 is far from complete, even though they have entries for all the months. 2018 has normal data from January to March, but then it finishes abruptly. We can see how the number of injured people doubles the number of killed people throughout the whole time period. If we watch closely we can perceive a tendency, some sort of cycle that repeats every year where the number of injured and killed people decreases during the winter, while it has peaks on summer.
+    
+    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+    plot_2_line
+    ```
+    
+### Methods (**30 points**)
+The question of interest selected from the proposal is the next one:
+
+<center> _Do the restrictions in a concrete State in order to purchase or use a gun affect the "gun kills/population" rate?_ 
+</center>
+
+In order to answer the question, "Firearms Provisions in US States" and "Gun violence" datasets are going to be joined. The percentage of policy measures is mixed with a number of kills per population rate for each year and state. Therefore, we can understand the impact of the restrictions in a concret state during the years.
+
+The appropriate methods are employed to answer the question of interest, including:
+- **Strength of relationships**: Uses the appropriate technique to assess the strength of relationships amongst your variables of interest. You should include: 
+  - A formula describing how you believe your features (independent variables) are related to your outcome of interest (dependent variable) (**5 points**)
+  - A defense of the variables included in your formula (**5 points**)
+  - Creating the appropriate model based on your dataset (**5 points**)
+- **Prediction**: You must also make predictions for your outcome of interest. In doing so, you must demonstrate a clear use of:
+  - Splitting your data into testing/training data (**2 points**)
+  - Applying cross validation to your model (**3 points**)
+  - Appropriately handling any missing values (**2 points**)
+  - Appropriately using categorical variables (**3 points**)
+  - Using a grid search to find the best parameters for you model of interest (**2 points**)
+  - Employing the algorithm of interest (**3 points**)
+
+The datasets chose are not suitable to create a machine learning approach. Nevertheless, with a few features we are going to create a model. The features selected are:
+
+**EXPLAIN HERE WHY WE THINK THE FEATURES SHOULD BE IN THE MODEL**
+  * State
+  * Year
+  * Score (Percentage of policy measures)
+  * Number of kills/population rate
+
+
+### Results (**20 points**)
+You must provide a clear interpretation of your statistical and machine learning results, including at least **one visual or table** for each.
+- **Strengths of relationships**: For the features you included in your model, you must describe the strength (significance) and magnitude of the relationships. This can be presented in a table or chart, and pertinent observations should be described in the text. (**10 points**)
+- **Predictions**: How well were you able to predict values in the dataset? You should both report appropriate metrics based on the type of outcome you're predicting (e.g., root mean squared error v.s. accuracy), as well as a high quality visual showing the strength of your model (**10 points**)
+
+### Discussion and Future Work (**10 points**)
+Based on _specific observations_ from the results section, the report clearly provides:
+  - An analysis of the real world implications of the results, at least one full paragraph (**5 points**)
+  - Clear suggestion for directions of future research, at least one full paragraph (**5 points**)
+
+### Code Quality (**5 points**)
+Code is well commented and structured (e.g., indented), organized across multiple different files, uses clear variable names, and runs on any computer.
