@@ -1,8 +1,11 @@
 ---
 title: "Data Processes Final Project - Group 1"
-author: "Artjom Poljakow, Wladyslaw Eysymontt, Mateusz Klimas, Juan Luis Ruiz-Tagle, Jorge Martín Lasaosa"
+author: Artjom Poljakow, Wladyslaw Eysymontt, Mateusz Klimas, Juan Luis Ruiz-Tagle,
+  Jorge Martín Lasaosa
 date: "20/12/2019"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -28,13 +31,10 @@ This rubric is intended to help guide expectations and increase transparency. Ho
 Introduces the dataset by describing the origin (source) and structure (shape, relevant features) of the data being used (**5 points**)
 
 1. [Federal Firearm Licences](https://www.kaggle.com/doj/federal-firearm-licensees) The original data is published online in a tab-separated format by the [Department of Justice Bureau of Alcohol, Tobacco, Firearms, and Explosives](https://www.atf.gov/resource-center/data-statistics). This association, also known as ATF, compiles a comprehensive collection of ATF-related data from national surveys, state-based surveys, other collected license statistics, and other data sources documents trends in firearms, commerce and use of federal services in the United States.There are important features such as:
+- State to which belongs the license
+- City to which belongs the license
+- Type of license
 
-    * Example 1
-    * Example 2
-    * Example 3
-    * ...
-
-    **The main structure is blablablablabla**
 
 2. [Gun violence Dataset](https://www.kaggle.com/jameslko/gun-violence-data): More than 260.000 gun violence incidents in the US between January 2013 and March 2018 with detailed information about each one. GVA organization utilize automated queries, manual research through over 6,500 sources from local and state police, media, data aggregates, government and other sources daily. Each incident is verified by both initial researchers and secondary validation processes. There are relevant information such us:
 
@@ -43,7 +43,7 @@ Introduces the dataset by describing the origin (source) and structure (shape, r
     * Example 3
     * ...
 
-    The main structure is **blablablablabla**. However, the combination of categorical and continuous features is plenty of null values. This can be harmful to the machine learning algorithms
+    The main structure is **blablablablabla**. However, the combination of categorical and continuous features has plenty of null values. This can be harmful to the machine learning algorithms. 
 
 3. [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms): The State Firearm Laws project aims to provide researchers with the data necessary to evaluate the effectiveness of various firearm laws. This dataset covers all 50 US States from 1991 to 2017 and includes 133 binary variables which explain the states requirements. These requirements are related to the following topics:
     
@@ -54,67 +54,107 @@ Introduces the dataset by describing the origin (source) and structure (shape, r
     * Sale of ammunition is restricted to the same categories of those who are legally allowed to purchase firearms.
     * Purchase of any type of ammunition restricted to those ages 18 and older.
     * Purchase of handgun ammunition restricted to those ages 21 and older.
-    * ...
 
     One-hundred of the 133 provisions were coded by Michael Siegel, MD, MPH, Boston University School of Public Health, with funding from the Robert Wood Johnson Foundation, Evidence for Action: Investigator-Initiated Research to Build a Culture of Health program (grant #73337), using data derived from the Thomson Reuters Westlaw legislative database. The other 33 provisions were coded using a database created by Everytown for Gun Safety and Legal Science, LLC. Shared in accordance with the Creative Commons Attribution-4.0 International License.
 
+4. [US Mass Shootings, 1982-2019](https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/):
+This dataset is based on information recompiled from several public sources, such as Wikipedia, Mother Jones, Stanford, USA Today and others. It contains only 323 rows distributed across 50 years and 49 states; therefore, the data is very dispersed and may not be useful for predictions. Even though, it can help us to understand some general behaviours and relations between the variables, especially since it is very strongly related to our other datasets. Different data transformations, such as unification of State’s names and deleting rows containing no State name had been done for being able to continue with an explanatory analysis.
+The graphic made on its data, “Victims of mass shootings per State” is a stacked-bar plot which represents for every State the sum of the people injured and killed during all the years. It can help us to understand not only what States suffered more from these events, but also where the shooting are usually more deadly by the rate of injured/killed people. Some important variables are:
+* total_victims
+* weapons_obtained_legally
+* weapon_type
 
-Creates 5 well designed and formatted graphics (**15 points**, 3 each)
-  
- * The visual uses the appropriate visual encodings based on the data type (**1 point**)
- * Written interpretation of graphic is provided (**1 point**)
- * Clear axis labels, titles, and legends are included, where appropriate (**1 point**)
+#### Results of data set exploration
 
-Here we have the graphs:
-
-1. Heatmap graph representing "Firearms Provisions in US States" dataset
+##### 1. Heatmap graph representing "Firearms Provisions in US States" dataset
     
-    For each state and year, the percentage of policiy measures are represented. Althoug a lot of states are improving their provisions, the mayority do not reach even a half of them. WRITE MORE.
+    For each state and year, the percentage of policy measures are represented. Although a lot of states are improving their provisions, the mayority do not reach even a half of them. WRITE MORE.
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
     plot_1_heatmap
     ```
-2. Plot 2 title Juan Luis
+##### 2. Evolution of injured and killed victims in USA between 2013 and 2018
     
     This graph showcases the evolution of the number of people killed and injured  in USA from 2013 to 2018. We notice quickly that the data from 2013 is far from complete, even though they have entries for all the months. 2018 has normal data from January to March, but then it finishes abruptly. We can see how the number of injured people doubles the number of killed people throughout the whole time period. If we watch closely we can perceive a tendency, some sort of cycle that repeats every year where the number of injured and killed people decreases during the winter, while it has peaks on summer.
     
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
     plot_2_line
     ```
+##### 3. HeatMap with gun selling licenses in the USA
+    First, in order to design the heatmap, we have merged the columns Premise.State and Mail.State into one, checking if both of them are the same in order to don't assume the place where this license belong, as the publisher doesn't specify to what these two different columns of states refer to. Also, the columns like state are converted from factors to string. 
+  To get the data ready to use for the USA map, we first group the observations by state and license type. Then we add all the licenses to get only groups for each type of license with the number of licenses, which later will be added together in order to get the number of licenses for each state.
+To create the heatmap, we use the library usmap, using the function plot_usmap, to which me input the data we have processed, and where we define things like the low and high colors of the heatmap, the legends, etc. 
+Once the heatmap is ploted, we can observe all the states with a different color grade, where Texas is the state with more licenses. The other states display different ranges of colours.
     
+    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+    plot_3_licenses_map
+    ```
+
+##### 4. Barchart with victims of mass shootings per state.
+    
+    Description
+    
+    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+    plot_4_victims_state
+    ```
+##### 4. Map with incidents by location.
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+complete_Map
+
+```
+   
+   
 ### Methods (**30 points**)
 The question of interest selected from the proposal is the next one:
 
 <center> _Do the restrictions in a concrete State in order to purchase or use a gun affect the "gun kills/population" rate?_ 
 </center>
 
-In order to answer the question, "Firearms Provisions in US States" and "Gun violence" datasets are going to be joined. The percentage of policy measures is mixed with a number of kills per population rate for each year and state. Therefore, we can understand the impact of the restrictions in a concret state during the years.
+In order to answer the question, "Firearms Provisions in US States" and "Gun violence" datasets were joined together. By doing this we have been able to understand the impact of the restrictions in each specific state on the number of killed victims throughout the years. We have created two new variables:
+- Score: Score is just the percentage of provisions (policies) that were active in a given state at a given year. 
+- Rate: Rate is the ratio of killed victims per state population in a year.
 
-The appropriate methods are employed to answer the question of interest, including:
-- **Strength of relationships**: Uses the appropriate technique to assess the strength of relationships amongst your variables of interest. You should include: 
-  - A formula describing how you believe your features (independent variables) are related to your outcome of interest (dependent variable) (**5 points**)
-  - A defense of the variables included in your formula (**5 points**)
-  - Creating the appropriate model based on your dataset (**5 points**)
-- **Prediction**: You must also make predictions for your outcome of interest. In doing so, you must demonstrate a clear use of:
-  - Splitting your data into testing/training data (**2 points**)
-  - Applying cross validation to your model (**3 points**)
-  - Appropriately handling any missing values (**2 points**)
-  - Appropriately using categorical variables (**3 points**)
-  - Using a grid search to find the best parameters for you model of interest (**2 points**)
-  - Employing the algorithm of interest (**3 points**)
+Our hypothesis states that there is a significant negative correlation between these two variables. We believe that *Year* has also impact on the final rate (we saw in graph 2 that there is a growing tendence of criminal activity), and that *State* has a huge dependence on the *Rate* since it is a well known fact that some states are way more violent than others (just have a glance at graph 3).
 
-The datasets chose are not suitable to create a machine learning approach. Nevertheless, with a few features we are going to create a model. The features selected are:
+This hypothesis can be represented by the following formula:
+<center>
+$ Rate = \beta_0 + \beta_1 Score + \beta_2 State + \beta_3Year $
+</center>
 
-**EXPLAIN HERE WHY WE THINK THE FEATURES SHOULD BE IN THE MODEL**
-  * State
-  * Year
-  * Score (Percentage of policy measures)
-  * Number of kills/population rate
+To confirm or discard this hypothesis we will start by looking at the correlation matrix between these variables. 
 
+    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+    corrplot(correlation_matrix, method="number",type="lower")
+    ```
+We can see how there is a strong inverse correlation between *Score* and our target variable *Rate*. As well ther is a mild correlation between *Year* and *Rate* and absolutely none (0.01) between *Year* and *Score*. This is exactly what we need to get a good linear regression: correlation between the variables and the target and independence between the variables themselves. If this is the case we are sure to avoid multicollinearity issues. There are other assumptions that should be checked (homeostaticity, normality of residuals, etc) but these lie beyond the scope of this project. The *State* variable is not included in the matrix since it is a categorical variable.
+
+Taking all this into consideration, we proceed to create our model in R. To do this we first check that there are no missing values in the dataset. In order to use the *State* as a categorical variable we make sure that it is configured as a `factor`, which it is by default. Then we split the dataset in training and test data in a 75% - 25% ratio respectively. Afterwards we start training our model using cross validation with 10 folds and 3 repetitions and gridsearch. The only parameter our grid will search is the intercept (the only one available for linear regression).
 
 ### Results (**20 points**)
-You must provide a clear interpretation of your statistical and machine learning results, including at least **one visual or table** for each.
-- **Strengths of relationships**: For the features you included in your model, you must describe the strength (significance) and magnitude of the relationships. This can be presented in a table or chart, and pertinent observations should be described in the text. (**10 points**)
-- **Predictions**: How well were you able to predict values in the dataset? You should both report appropriate metrics based on the type of outcome you're predicting (e.g., root mean squared error v.s. accuracy), as well as a high quality visual showing the strength of your model (**10 points**)
+
+The results that we obtain from our training model are the following.
+    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+    linear_model
+    ```
+
+Regarding the strength of the variables, the upcoming graph plots how decisive each variable is in the overall prediction of the model.
+
+    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+    plot(varimp, main="Variable Importance")
+    ```
+
+We see in this graph how some of the states are critical to the estimation of the *Rate* response variable.
+
+
+
+    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+  ggplot(test, aes(rate,rate_prediction)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = T)
+    ggtitle("Relation between predicted and target variables")
+  
+    ```
+
+We have seen that the performance measures are very excellent on this model (RSME, Rsquared and  MAE are very low). The graph above compares the predicted values with the targets, and we notice how the proportion is almost 1:1. 
 
 ### Discussion and Future Work (**10 points**)
 Based on _specific observations_ from the results section, the report clearly provides:
