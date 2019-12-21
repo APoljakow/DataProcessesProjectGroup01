@@ -27,8 +27,7 @@ library(stringr)
 library(leaflet)
 library(knitr)
 
-
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+#setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 # GRAPH 01 - Jorge
 
