@@ -77,7 +77,7 @@ The graphic made on its data, “Victims of mass shootings per State” is a sta
     This graph showcases the evolution of the number of people killed and injured  in USA from 2013 to 2018. We notice quickly that the data from 2013 is far from complete, even though they have entries for all the months. 2018 has normal data from January to March, but then it finishes abruptly. We can see how the number of injured people doubles the number of killed people throughout the whole time period. If we watch closely we can perceive a tendency, some sort of cycle that repeats every year where the number of injured and killed people decreases during the winter, while it has peaks on summer.
     
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-    plot_2_line
+    ggplotly(plot_2_line)
     ```
 ##### 3. HeatMap with gun selling licenses in the USA
     First, in order to design the heatmap, we have merged the columns Premise.State and Mail.State into one, checking if both of them are the same in order to don't assume the place where this license belong, as the publisher doesn't specify to what these two different columns of states refer to. Also, the columns like state are converted from factors to string. 
@@ -86,7 +86,7 @@ To create the heatmap, we use the library usmap, using the function plot_usmap, 
 Once the heatmap is ploted, we can observe all the states with a different color grade, where Texas is the state with more licenses. The other states display different ranges of colours.
     
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-    plot_3_licenses_map
+    ggplotly(plot_3_licenses_map)
     ```
 
 ##### 4. Barchart with victims of mass shootings per state.
@@ -94,9 +94,12 @@ Once the heatmap is ploted, we can observe all the states with a different color
     Description
     
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-    plot_4_victims_state
+    ggplotly(plot_4_victims_state)
     ```
-##### 4. Map with incidents by location.
+
+
+
+##### 5. Map with incidents by location.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 complete_Map
 
@@ -123,7 +126,7 @@ $ Rate = \beta_0 + \beta_1 Score + \beta_2 State + \beta_3Year $
 To confirm or discard this hypothesis we will start by looking at the correlation matrix between these variables. 
 
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-    corrplot(correlation_matrix, method="number",type="lower")
+    ggcorrplot(correlation_matrix_complete_plot, lab = T, title = "Corr matrix on selected variables")
     ```
 We can see how there is a strong inverse correlation between *Score* and our target variable *Rate*. As well ther is a mild correlation between *Year* and *Rate* and absolutely none (0.01) between *Year* and *Score*. This is exactly what we need to get a good linear regression: correlation between the variables and the target and independence between the variables themselves. If this is the case we are sure to avoid multicollinearity issues. There are other assumptions that should be checked (homeostaticity, normality of residuals, etc) but these lie beyond the scope of this project. The *State* variable is not included in the matrix since it is a categorical variable.
 
@@ -139,7 +142,9 @@ The results that we obtain from our training model are the following.
 Regarding the strength of the variables, the upcoming graph plots how decisive each variable is in the overall prediction of the model.
 
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-    plot(varimp, main="Variable Importance")
+    ggplotly(varimp_plot)
+    
+      
     ```
 
 We see in this graph how some of the states are critical to the estimation of the *Rate* response variable.
@@ -147,11 +152,12 @@ We see in this graph how some of the states are critical to the estimation of th
 
 
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-  ggplot(test, aes(rate,rate_prediction)) +
+  est_rate <- ggplot(test, aes(rate,rate_prediction)) +
   geom_point() +
   geom_smooth(method = "lm", se = T)
     ggtitle("Relation between predicted and target variables")
-  
+    
+  ggplotly(est_rate)
     ```
 
 We have seen that the performance measures are very excellent on this model (RSME, Rsquared and  MAE are very low). The graph above compares the predicted values with the targets, and we notice how the proportion is almost 1:1. 
