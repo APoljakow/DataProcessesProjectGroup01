@@ -7,7 +7,14 @@
 # install.packages("stats")
 # install.packages("tidyverse")
 # install.packages("caret")
-#install.packages("ggcorrplot")
+# install.packages("ggcorrplot")
+
+# Clear plots
+if(!is.null(dev.list())) dev.off()
+# Clear console
+cat("\014") 
+# Clean workspace
+rm(list=ls())
 
 library(dplyr)
 library(plotly)
@@ -33,7 +40,7 @@ library(ggcorrplot)
 
 # GRAPH 01 - Jorge
 
-path_data <- "../data/state-firearms/raw_data.csv"
+path_data <- "../data/state-firearm_raw_data.csv"
 
 dataset_state_firearms <- read.csv(path_data,header=TRUE,sep=',')
 

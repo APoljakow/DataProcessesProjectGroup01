@@ -110,7 +110,7 @@ Once the heatmap is ploted, we can observe all the states with a different color
 
 ##### 5. Map with incidents by location.
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-    #complete_Map
+    complete_Map
 
 ```
    
@@ -134,10 +134,11 @@ $$Rate = \beta_0 + \beta_1 Score + \beta_2 State + \beta_3Year$$
 
 To confirm or discard this hypothesis we will start by looking at the correlation matrix between these variables. 
 
-    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-
+```{r echo=FALSE, fig.align='center'}
+    
+    #ggcorrplot(correlation_matrix_complete_plot, lab = T, title = "Corr matrix on selected variables")
     ggcorrplot(correlation_matrix_complete_plot, lab = T, title = "Corr matrix on selected variables")
-
+    
     ```
 We can see how there is a strong inverse correlation between *Score* and our target variable *Rate*. As well ther is a mild correlation between *Year* and *Rate* and absolutely none (0.01) between *Year* and *Score*. This is exactly what we need to get a good linear regression: correlation between the variables and the target and independence between the variables themselves. If this is the case we are sure to avoid multicollinearity issues. There are other assumptions that should be checked (homeostaticity, normality of residuals, etc) but these lie beyond the scope of this project. The *State* variable is not included in the matrix since it is a categorical variable.
 
@@ -163,11 +164,12 @@ We see in this graph how some of the states are critical to the estimation of th
 
 
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-
+  
+  ##This is for whatever reason commented on the html output, thererfore commented here TO SOLVE
   est_rate <- ggplot(test, aes(rate,rate_prediction)) +
   geom_point() +
   geom_smooth(method = "lm", se = T)
-    ggtitle("Relation between predicted and target variables")
+  #  ggtitle("Relation between predicted and target variables")
     
   ggplotly(est_rate)
 
