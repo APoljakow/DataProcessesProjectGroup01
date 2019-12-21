@@ -7,6 +7,7 @@
 # install.packages("stats")
 # install.packages("tidyverse")
 # install.packages("caret")
+#install.packages("ggcorrplot")
 
 library(dplyr)
 library(plotly)
@@ -26,6 +27,7 @@ library(tibble)
 library(stringr)
 library(leaflet)
 library(knitr)
+library(ggcorrplot)
 
 #setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
@@ -73,8 +75,6 @@ plot_2_line <- ggplot(victims, aes(month_year)) +
   geom_line(aes(y = sum_killed, colour = "sum_killed")) + 
   geom_line(aes(y = sum_injured, colour = "sum_injured")) +
   labs(title = "Monthly victims in USA") 
-
-plot_2_line
 
 #Graph 03 - Mateusz
 
@@ -263,15 +263,15 @@ gun <- as.tibble(data.table::fread(str_c("", "../data/gun-violence-data_01-2013_
                                    header=TRUE,stringsAsFactors = FALSE, na.strings=c("NA", "")))
 gun$victims <- gun$n_killed + gun$n_injured
 
-allIncidents <- gun %>% select(incident_id, date, n_killed, n_injured, victims, location_description, city_or_county, state, latitude, longitude) %>% 
+allIncidents <- gun %>% select(incident_id, date, n_killed, n_injured, victims, location_description, city_or_county, state, latitude, longitude) %>%
   rename(Incident_Id=incident_id, Date=date, Killed=n_killed, Injured=n_injured, Victims=victims, Location=location_description, City=city_or_county) %>%
-  arrange(desc(Victims)) 
+  arrange(desc(Victims))
 
 kable(allIncidents %>% select(-longitude, -latitude))
 
 TopMap <- allIncidents %>% select(latitude, longitude, Victims, City, Location)
 
-TopMap_labels <- paste0("<strong>City: </strong>", TopMap$City, 
+TopMap_labels <- paste0("<strong>City: </strong>", TopMap$City,
                  "<br><strong>Location: </strong>", TopMap$Location,
                  "<br><strong>Victims </strong>", TopMap$Victims) %>% lapply(htmltools::HTML)
 complete_Map <- leaflet(TopMap) %>%
@@ -280,7 +280,7 @@ complete_Map <- leaflet(TopMap) %>%
   addProviderTiles("CartoDB.Positron", group="Light map") %>%
   addScaleBar %>%
   addMarkers(~longitude, ~latitude,
-             label = TopMap_labels,  
+             label = TopMap_labels,
              clusterOptions = markerClusterOptions())
 
 
@@ -320,7 +320,7 @@ sum(is.na(final_dataset))==0
 correlation_matrix <- round(cor(final_dataset %>% select(-c(state,population,total_killed))),2)
 correlation_matrix_complete_plot <- corrplot(correlation_matrix, method="number",type="lower")
 
-
+?corrplot
 
 # Linear Model
 
@@ -351,8 +351,14 @@ linear_model <- train(rate ~ score + year + state,
 print(linear_model)
 
 varimp <- varImp(linear_model)
+varimp_plot <- ggplot(varimp) +
+  geom_col(fill = "#FFDB6D", color = "#FFDB6D") +      
+  ggtitle("Variable Importance") + 
+  theme(axis.text = element_text(size = 5))
+
 #plot(varimp, main="Variable Importance")
 #typeof(varimp)
+
 
 test$rate_prediction <- predict(linear_model,test)
 
