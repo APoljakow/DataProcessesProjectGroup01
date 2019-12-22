@@ -22,10 +22,49 @@ This rubric is intended to help guide expectations and increase transparency. Ho
 ### Abstract (**5 points**)
 - Succinctly summarizes the importance and findings of the project within the 150 word limit.
 
+  The intention of this paper is to find a way to influence the incident rate related to guns. As the most amount of data 
+  considering this topic is available from the united stated it was the chosen are to work on. Datasets considered were the   
+  following, one with incidents happened from 2013-18, evolution of laws considering gun regulation, gun license
+  aquirement and population disctribution in the states. 
+  To gain information the incidents were related to an amount of people to normalize the value. 
+  An metric which shows how many laws are applied to gun regulation in a state and their development over the years is       introduced and explained. 
+  The visualized graphs datasets and the applied model show a clear relationship between the following 
+     TODO 
+  Considering the relationship is can or cannot be advised to apply more laws, change regulation considering the   
+     aquirement of guns and a govermental controlled instance which intervend by people who clearly are a threat for the 
+     community before incidents happen.
+  
+
 ### Introduction and Related Work (**10 points**)
 - Provides a clear motivation for answering a _specific_ data driven question of interest (**5 points**)
-- Cites 5 _relevant_ pieces of relevant work (whatever format you choose is fine, including just a hyperlink) (**1 point each**)
 
+  As the clear problem of weapon abuse among civilians is a public threat to everybody especially among the most volnerable
+  the children the motivation is to find a way to influence this behavior in a positiv way, that is to decrease the amount
+  incidents happening every year. As there are several ways of handling this problem by taking a look among different 
+  countries, there is none with such a broad and detailed amount of data as the united states. As every state provides
+  their own laws on this topic, a major part of citizens rely on the constitution. To keep in mind that it is not quite 
+  reasonable to collect all weapons the next day and solve the problem this way it is feasable to concentrate on rather
+  credible possibilities. Which leads us to our question, do the restrictions in a concrete State in order to purchase or
+  use a gun affect the "gun kills/population" rate? While investigating the data we sure took a look on related
+  publications as the following.
+  
+
+- Cites 5 _relevant_ pieces of relevant work (whatever format you choose is fine, including just a hyperlink) (**1 point each**)
+  Under the cirsumstances explained it is quite a harsh decision to make for everybody involved. During the last years
+  different states have adopted so called a red flag law. This law enables the court to collect weapons from specific 
+  individuals if a threat for them or the community is given. Therefore the judge handling the case need to decide if
+  the evidence, which are the most threats, are sufficient to claim a persons opinion as a threat and restrict their rights
+  of possessing a gun and use it in which ever possible way they like. Articles like
+  [judge decisions](https://www.nytimes.com/2019/11/18/us/gun-seizures.html), 
+  [red flag law](https://www.nytimes.com/2019/08/06/us/red-flag-laws.html), 
+  [protection](https://www.econlib.org/the-purpose-of-a-gun-is-not-to-kill/), 
+  [suicide](https://lawcenter.giffords.org/facts/gun-violence-statistics/),
+  [suicide](https://lawcenter.giffords.org/facts/gun-violence-statistics/),
+  [domestic violence](https://lawcenter.giffords.org/gun-laws/policy-areas/who-can-have-a-gun/domestic-violence-firearms/)
+  illustrate the situation.
+  To relief judges and the cociety the laws have to be adjusted so people do not feel like their rights were restricted 
+  and a abuse of firearms is prevented.
+  
 ### Exploratory Data Analysis (**20 points**)
 
 Introduces the dataset by describing the origin (source) and structure (shape, relevant features) of the data being used (**5 points**)
@@ -180,6 +219,33 @@ We have seen that the performance measures are very excellent on this model (RSM
 ### Discussion and Future Work (**10 points**)
 Based on _specific observations_ from the results section, the report clearly provides:
   - An analysis of the real world implications of the results, at least one full paragraph (**5 points**)
+  
+  Based on specific observations from the results section, the report clearly provides:
+
+    An analysis of the real world implications of the results, at least one full paragraph (5 points)
+	
+	Based on the information gained through the analysis, the hypothesis that a restriction by law to get guns will reduce the
+	amount of incidents, can be confirmed. The amount of incidents in states where the purchase of a gun was restrictive
+	or got more restrictive by the years did drop. Nevertheless the fact that a high amount of citizens implies a appropriate
+	amount of incidents should not be ignored. Therefore an analysis of the amount of citizens was taken in account. Recpectively
+	the states with the highes amount of incidents with refering to their inhabitants are Alaska, Delaware, Louisiana, 
+	South Carolina and Illinois. 
+	Considering the score created to rank the states by their application of law considering gun restrictions the states mentioned
+	obtain a score below 20 throught the years from 1991 till 2017. This includes Alaska 10 -> 5, Louisiana ~10, 
+	South Carolina 15 -> 10, 
+	slight improvement in Delaware, on the contrary Illinois, despite having higher score compared to the mentioned before, still
+	has a high rate of incidents.(30 -> 50)
+	Now taking a look at the states with the lowest amount of incidents are Hawaii, Arizona, Utah, Idaho, California. They all
+	have an incident rate below 50 per 100k of inhabitants.  
+	Hawaii(30 -> 60), 
+	Arizona(10), 
+	Utah(10), 
+	Idaho(5), 
+	California(50 -> 80)
+	That questions the created score ranking. Nevertheless the score is created equaly across all laws available,
+	this implies that all laws have an equal impact on the costumer, which it certainly has not. To improve the score 
+	and create a more reliable metric a weighted sum can be considered.
+  
   - Clear suggestion for directions of future research, at least one full paragraph (**5 points**)
 
 ### Code Quality (**5 points**)
