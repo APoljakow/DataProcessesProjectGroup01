@@ -82,21 +82,20 @@ This dataset is based on information recompiled from several public sources, suc
 
 #### Results of data set exploration
 
-##### 1. Heatmap graph representing "Firearms Provisions in US States" dataset
-  For each state and year, the percentage of policy measures are represented. Although a lot of states are improving their provisions, the mayority do not reach even a half of them. 
+##### 1. Heatmap representing "Firearms Provisions in US States" dataset
+  For each state and year, the percentage of policy measures are represented. Although a lot of states are improving their provisions, the maj<sority do not reach even a half of them.
+  
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
     plot_1_heatmap
     ```
 ##### 2. Evolution of injured and killed victims in USA between 2013 and 2018
-    This graph showcases the evolution of the number of people killed and injured  in USA from 2013 to 2018. We notice quickly that the data from 2013 is far from complete, even though they have entries for all the months. 2018 has normal data from January to March, but then it finishes abruptly. We can see how the number of injured people doubles the number of killed people throughout the whole time period. If we watch closely we can perceive a tendency, some sort of cycle that repeats every year where the number of injured and killed people decreases during the winter, while it has peaks on summer.
+  This graph showcases the evolution of the number of people killed and injured  in USA from 2013 to 2018. We notice quickly that the data from 2013 is far from complete, even though they have entries for all the months. 2018 has normal data from January to March, but then it finishes abruptly. We can see how the number of injured people doubles the number of killed people throughout the whole time period. If we watch closely we can perceive a tendency, some sort of cycle that repeats every year where the number of injured and killed people decreases during the winter, while it has peaks on summer.
     
-    ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
     ggplotly(plot_2_line)
-    
     ```
-##### 3. HeatMap with gun selling licenses in the USA
-    First, in order to design the heatmap, we have merged the columns Premise.State and Mail.State into one, checking if both of them are the same in order to don't assume the place where this license belong, as the publisher doesn't specify to what these two different columns of states refer to. Also, the columns like state are converted from factors to string. 
+##### 3. Heatmap with gun selling licenses in the USA
+  First, in order to design the heatmap, we have merged the columns Premise.State and Mail.State into one, checking if both of them are the same in order to don't assume the place where this license belong, as the publisher doesn't specify to what these two different columns of states refer to. Also, the columns like state are converted from factors to string. 
   To get the data ready to use for the USA map, we first group the observations by state and license type. Then we add all the licenses to get only groups for each type of license with the number of licenses, which later will be added together in order to get the number of licenses for each state.
 To create the heatmap, we use the library usmap, using the function plot_usmap, to which me input the data we have processed, and where we define things like the low and high colors of the heatmap, the legends, etc. 
 Once the heatmap is ploted, we can observe all the states with a different color grade, where Texas is the state with more licenses. The other states display different ranges of colours.
@@ -132,11 +131,11 @@ The question of interest selected from the proposal is the next one:
 <center> _Do the restrictions in a concrete State in order to purchase or use a gun affect the "gun kills/population" rate?_ 
 </center>
 
-In order to answer the question, "Firearms Provisions in US States" and "Gun violence" datasets were joined together. By doing this we have been able to understand the impact of the restrictions in each specific state on the number of killed victims throughout the years. We have created two new variables:
+In order to answer the question, "Firearms Provisions in US States" and "Gun violence" datasets were joined together. Doing this enables to understand the impact of the restrictions in each specific state on the number of killed victims throughout the years. Two new variables have been created :
 - Score: Score is just the percentage of provisions (policies) that were active in a given state at a given year. 
 - Rate: Rate is the ratio of killed victims per state population in a year.
 
-Our hypothesis states that there is a significant negative correlation between these two variables. We believe that *Year* has also impact on the final rate (we saw in graph 2 that there is a growing tendence of criminal activity), and that *State* has a huge dependence on the *Rate* since it is a well known fact that some states are way more violent than others (just have a glance at graph 3).
+Hypothesis states that there is a significant negative correlation between these two variables. Assuming that *Year* has also impact on the final rate (as seen in graph 2 that there is a growing tendence of criminal activity), and that *State* has a huge dependence on the *Rate*.
 
 This hypothesis can be represented by the following formula:
 
@@ -151,15 +150,15 @@ To confirm or discard this hypothesis we will start by looking at the correlatio
     ggcorrplot(correlation_matrix_complete_plot, lab = T, title = "Corr matrix on selected variables")
     
     ```
-We can see how there is a strong inverse correlation between *Score* and our target variable *Rate*. As well ther is a mild correlation between *Year* and *Rate* and absolutely none (0.01) between *Year* and *Score*. This is exactly what we need to get a good linear regression: correlation between the variables and the target and independence between the variables themselves. If this is the case we are sure to avoid multicollinearity issues. There are other assumptions that should be checked (homeostaticity, normality of residuals, etc) but these lie beyond the scope of this project. The *State* variable is not included in the matrix since it is a categorical variable.
+There is a strong inverse correlation between *Score* and the target variable *Rate*. As well as a mild correlation between *Year* and *Rate* and absolutely none (0.01) between *Year* and *Score*. This is exactly what is needed to get a good linear regression: correlation between the variables and the target and independence between the variables themselves. This avoids multicollinearity issues. For further investigations the following assumptions can be refered to homeostaticity, normality of residuals, etc... . The *State* variable is not included in the matrix since it is a categorical variable.
 
-Taking all this into consideration, we proceed to create our model in R. To do this we first check that there are no missing values in the dataset. In order to use the *State* as a categorical variable we make sure that it is configured as a `factor`, which it is by default. Then we split the dataset in training and test data in a 75% - 25% ratio respectively. Afterwards we start training our model using cross validation with 10 folds and 3 repetitions and gridsearch. The only parameter our grid will search is the intercept (the only one available for linear regression).
+Creating a model in R the following steps have been followed. First check that there are no missing values in the dataset. In order to use the *State* as a categorical variable it is configured as a `factor`, which it is by default. Then split the dataset in training and test data in a 75% - 25% ratio respectively. Afterwards start training the model using cross validation with 10 folds and 3 repetitions and gridsearch. The only parameter the grid will search is the intercept (the only one available for linear regression).
 
 ### Results
 
-The results that we obtain from our training model are the following.
+The results obtained from our training model are the following.
     ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
-    #linear_model
+    linear_model
     ```
 
 Regarding the strength of the variables, the upcoming graph plots how decisive each variable is in the overall prediction of the model.
@@ -170,7 +169,7 @@ Regarding the strength of the variables, the upcoming graph plots how decisive e
     
     ```
 
-We see in this graph how some of the states are critical to the estimation of the *Rate* response variable.
+This graph shows that some of the states are critical to the estimation of the *Rate* response variable.
 
 
 
@@ -186,13 +185,12 @@ We see in this graph how some of the states are critical to the estimation of th
 
     ```
 
-We have seen that the performance measures are very excellent on this model (RSME, Rsquared and  MAE are very low). The graph above compares the predicted values with the targets, and we notice how the proportion is almost 1:1. 
+The performance measures are very excellent on this model (RSME, Rsquared and  MAE are very low). The graph above compares the predicted values with the targets. Take in account that the proportion is almost 1:1. 
 
 ### Discussion and Future Work 
 
-  The report clearly explains that there is a relationship between the gun-control policies applied in a state and the number of kills occured. The more restrictive this policies are, the less people die.
-  
+  The report clearly explains that there is a relationship between the gun-control policies applied in a state and the number of kills occured. The more restrictive this policies are, the less people die, speaking in general terms.
 	Based on the information gained through the analysis, the hypothesis that a restriction by law to get guns will reduce the amount of incidents, can be confirmed. The amount of incidents in states where the purchase of a gun was restrictive or got more restrictive by the years did drop. Nevertheless the fact that a high amount of citizens implies a appropriate 	amount of incidents should not be ignored. Therefore an analysis of the amount of citizens was taken in account. Recpectively the states with the highes amount of incidents with refering to their inhabitants are Alaska, Delaware, Louisiana, South Carolina and Illinois. 
-	Considering the score created to rank the states by their application of law considering gun restrictions the states mentioned	obtain a score below 20 throught the years from 1991 till 2017. This includes Alaska 10 -> 5, Louisiana ~10, South Carolina 15 -> 10, slight improvement in Delaware, on the contrary Illinois, despite having higher score compared to the mentioned before, still has a high rate of incidents.(30 -> 50)
-	Now taking a look at the states with the lowest amount of incidents are Hawaii, Arizona, Utah, Idaho, California. They all have an incident rate below 50 per 100k of inhabitants.  Hawaii(30 -> 60), Arizona(10), Utah(10), Idaho(5), California(50 -> 80).
-	This questions the created score ranking. Nevertheless the score is created equaly across all laws available, this implies that all laws have an equal impact on the costumer, which it is certainly not the case. To improve the score and create a more reliable metric a weighted sum can be considered.
+	Considering the score created to rank the states by their application of law considering gun restrictions the states mentioned	obtain a score below 20 throught the years from 1991 till 2017. This includes Alaska where the score decreased from 10 to 5, Louisiana with a more or less stable score of 10, South Carolina decreased from 15 to 10, slight improvement in Delaware, on the contrary Illinois, despite having higher score compared to the mentioned before, still has a high rate of incidents.It actually increase from 30 to 50.
+	Now taking a look at the states with the lowest amount of incidents are Hawaii, Arizona, Utah, Idaho, California. They all have an incident rate below 50 per 100k of inhabitants.  Hawaii increased from 30 to 60, Arizona stayed around 10, like  Utah 10, Idaho got a stable score of 5 and finally California increased their score from 50 to 80.
+	This questions the created score ranking. Nevertheless the score is created equaly across all laws available, this implies that all laws have an equal impact on the costumer, which it is certainly not the case. To improve the score and create a more reliable metric a weighted sum can be considered. Furthermore states with a very low incidentrate combined with a low law score should be inspected broadly as it can be assumed that this few laws have wide broader impect compared to others. 
