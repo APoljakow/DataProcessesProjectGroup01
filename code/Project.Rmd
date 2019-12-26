@@ -20,10 +20,7 @@ source("Project.R")
 Gun-restrictive laws are effective in diminishing the number of gun-kills. Our work analyses and proves this fact across the states of USA between 2013 and 2018.
 
 ### Abstract
-The intention of this paper is to find a way to influence the incident rate related to guns. As the biggest amount of data available considering this topic comes from USA this was the chosen country to work with. Four datasets were considered: one with incidents happened from 2013-18, evolution of laws considering gun regulation, gun license acquirement and population distribution in USA. 
-To gain information the incidents were related to an amount of people to normalize the value. A metric which shows how many laws are applied to gun regulation in a state and their development over the years is introduced and explained. 
-  The visualized graphs and the applied model show a clear relationship between the number of gun-regulating laws which are active in a state and the proportion of killed people respect to the total population of the state.
-  Considering the relationship is can or cannot be advised to apply more laws, change regulation considering the aquirement of guns and a govermental controlled instance which intervend by people who clearly are a threat for the community before incidents happen.
+The intention is to find a way to influence the incident rate related to guns. Four datasets were considered: gun related incidents from 2013-18, evolution of laws considering gun regulation, gun license acquirement and population distribution in USA. For evaluation the death rate was related to the amount of people by normalization. A metric which shows how many laws are applied to gun regulation in a state and their development over the years is introduced and explained. The graphs and the applied model show a clear relationship between the number of gun-regulating laws which are active in a state and the proportion of killed people respect to the total population of the state. Considering the relationship, it can or cannot be advised to apply more laws, change regulation considering the acquirement of guns and a governmental controlled instance which intervened by people who are a threat for the community.
   
 
 ### Introduction and Related Work 
