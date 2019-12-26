@@ -61,7 +61,7 @@ plot_1_heatmap <- plot_ly(data = dataset_state_firearms,
              y=~state,
              z=~score,
              type="heatmap",
-             colors = c("firebrick","forestgreen"),
+             colors = c("firebrick","yellow", "forestgreen"),
              height = 1500,
              width = 800)
 
