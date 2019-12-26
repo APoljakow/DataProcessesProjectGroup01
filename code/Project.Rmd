@@ -38,7 +38,6 @@ The intention is to find a way to influence the incident rate related to guns. F
   [red flag law](https://www.nytimes.com/2019/08/06/us/red-flag-laws.html), 
   [protection](https://www.econlib.org/the-purpose-of-a-gun-is-not-to-kill/), 
   [suicide](https://lawcenter.giffords.org/facts/gun-violence-statistics/),
-  [suicide](https://lawcenter.giffords.org/facts/gun-violence-statistics/),
   [domestic violence](https://lawcenter.giffords.org/gun-laws/policy-areas/who-can-have-a-gun/domestic-violence-firearms/)
   illustrate the situation.
   To relief judges and the cociety the laws have to be adjusted so people do not feel like their rights were restricted 
@@ -59,9 +58,8 @@ The intention is to find a way to influence the incident rate related to guns. F
     * date
     * source of information
     * incident id
+    The combination of categorical and continuous features has plenty of null values. This can be harmful to the machine learning algorithms.
 
-
-The combination of categorical and continuous features has plenty of null values. This can be harmful to the machine learning algorithms. 
 
 3. [Firearms Provisions in US States](https://www.kaggle.com/jboysen/state-firearms): The State Firearm Laws project aims to provide researchers with the data necessary to evaluate the effectiveness of various firearm laws. This dataset covers all 50 US States from 1991 to 2017 and includes 133 binary variables which explain the states requirements. These requirements are related to the following topics:
     
@@ -77,10 +75,10 @@ The combination of categorical and continuous features has plenty of null values
 
 4. [US Mass Shootings, 1982-2019](https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/):
 This dataset is based on information recompiled from several public sources, such as Wikipedia, Mother Jones, Stanford, USA Today and others. It contains only 323 rows distributed across 50 years and 49 states; therefore, the data is very dispersed and may not be useful for predictions. Even though, it can help us to understand some general behaviours and relations between the variables, especially since it is very strongly related to our other datasets. Different data transformations, such as unification of State’s names and deleting rows containing no State name had been done for being able to continue with an explanatory analysis.
- Some important variables are:
-  * total_victims
-  * weapons_obtained_legally
-  * weapon_type
+
+    * total_victims
+    * weapons_obtained_legally
+    * weapon_type
 
 #### Results of data set exploration
 
